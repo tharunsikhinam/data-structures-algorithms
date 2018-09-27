@@ -1,20 +1,32 @@
 package arrays;
 import java.io.*;
 
+
+/*
+Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+Input: [0,0,1,1,2,3,3]
+Output: [0,1,2,3]
+*/
+
 class Solution {
     public int removeDuplicates(int[] nums) {
 
+        //base condition
         if(nums.length == 0) return 0;
-        int ptr = 1;
+        int index = 1;
 
+        // iterate through the array, find out non-duplicates and place them in order
         for(int i = 1; i < nums.length; i++) {
             if(nums[i] != nums[i - 1])
             {
-                System.out.println(ptr);
-                nums[ptr++] = nums[i];
+
+                nums[index++] = nums[i];
             }
         }
-        return ptr;
+        return index;
 
     }
 }
@@ -58,7 +70,8 @@ public class RemoveDuplicatesFromSortedArray {
         String line;
         while ((line = in.readLine()) != null) {
             int[] nums = stringToIntegerArray(line);
-            int[] nums2 = {0,0,1,1,2,2,3,3};
+            // create your own dummy array
+            // int[] nums2 = {0,0,1,1,2,2,3,3};
             int ret = new Solution().removeDuplicates(nums);
             String out = integerArrayToString(nums, ret);
 
