@@ -13,21 +13,15 @@ Output: [0,1,2,3]
 
 class Solution {
     public int removeDuplicates(int[] nums) {
-
         //base condition
         if(nums.length == 0) return 0;
         int index = 1;
-
         // iterate through the array, find out non-duplicates and place them in order
         for(int i = 1; i < nums.length; i++) {
             if(nums[i] != nums[i - 1])
-            {
-
                 nums[index++] = nums[i];
-            }
         }
         return index;
-
     }
 }
 
